@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4AM电子竞技俱乐部</title>
+    <script src="../jsSource/jquery-3.4.1.min.js"></script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 600px;
+            float: right;
+            margin-right: 30px;
+        }
+        .a1{
+            color: black;
+            font-weight: bold;
+            display: inline-block;
+            padding-right: 20px;
+        }
+        #div2{
+            float: right;
+            margin-right: 10px;
+        }
+        #a2{
+            text-decoration:none;
+        }
+        #a2:hover{
+            text-decoration:underline;           /*鼠标划上出现下划线*/
+        }
+        #query{
+            height: 40px;
+            font-size: 20px;
+            position: relative;
+            top: -15px;
+            width: 500px;
+            margin-right: 0;
+            padding-right: 0;
+            border-right: 0;
+        }
+        #search{
+            height: 44px;
+            position: relative;
+            top: -17px;
+            left: -5px;
+            width: 150px;
+            background-color: #3388ff;
+            color: white;
+            font-size: 20px;
+            font-weight: lighter;
+        }
+        #searchLemma{
+            height: 44px;
+            width: 150px;
+            position: relative;                     /*相对定位修改位置到指定地方*/
+            top: -17px;
+            border: 1px solid #2e82ff;
+            font-size: 20px;
+            color: #2e82ff;
+            background-color: white;
+        }
+        .help{
+            position: relative;                    /*相对定位修改位置到指定地方*/
+            left: 4px;
+            top: -10px;
+            color: black;
+        }
+        #div3{
+            margin: 0 auto;
+            width: 1050px;
+        }
+       #div4{
+           background-color: #f9f4d9;
+           color: #8f7f5d;
+           height: 35px;
+           width: 1150px;
+           margin: 0 auto;
+       }
+        #div5{
+            line-height: 35px;
+            text-indent: 20px;
+            font-size: 13px;
+        }
+        .declare-details{
+            text-decoration: none;
+            color: #338de6;
+        }
+        #img1{
+            cursor: pointer;
+        }
+        #div6{
+            width: 100%;
+            height: 40px;
+            background-color: #459df5;
+            color: white;
+            margin-top: 10px;
+        }
+        .div1{
+            line-height: 40px;                     /*字体在div中垂直居中*/
+            width: 110px;
+            text-align: center;                    /*字体在div中水平居中*/
+            cursor: pointer;                       /*鼠标划上光标变为小手*/
+            float: left;                           /*修改float属性使该div能接着前一个div的右边*/
+        }
+        .div1:hover{
+            background-color: #338ce6;
+        }
+        #div7{
+            cursor: pointer;                       /*鼠标划上光标变为小手*/
+            width: 120px;
+            float: left;
+            margin-left: 350px;
+            border-left: 1px solid #3982c8;
+            padding-left: 3px;
+        }
+        #div7 a{
+            display: inline;                     /*将块元素转换为行内元素*/
+            position: relative;
+            top: -5px;
+            text-decoration: none;              /*取消链接的下划线*/
+            color: white;
+        }
+        #div8{
+            width: 100%;
+            height: 200px;
+            background-color: #3982c8;
+            visibility: hidden;                    /*先让这个div不可见，当鼠标划上导航栏的时候这个div才可以出翔*/
+            opacity: 90%;
+            z-index: 2;
+            position: relative;
+
+        }
+        .div2{
+            line-height: 33px;
+            width: 110px;
+            text-align: center;
+            cursor: pointer;
+            float: left;
+        }
+        #div9{
+            position: relative;
+            top: -200px;
+        }
+        #div10{
+            width: 1150px;
+            height: 350px;
+            background-color: #f5f5f5;
+            margin: 0 auto;
+            position: relative;
+            top: -203px;
+        }
+        #div11{
+            position: relative;
+            top: 40px;
+            left: 40px;
+        }
+        #div12{
+            /*border: 1px solid red;*/
+            width: 300px;
+            height: 200px;
+            position: relative;
+            left: 750px;
+            top: -100px;
+        }
+        #div13{
+            width: 700px;
+            /*border: 1px solid red;*/
+            position: relative;
+            top: -180px;
+        }
+        .div3{
+            width: 750px;
+            /*border: 1px solid red;*/
+            position: relative;
+            border-bottom: 1px dotted gray;
+
+            top: -150px;
+        }
+        .div4{
+            width: 750px;
+            /*border: 1px solid red;*/
+            position: relative;
+            top: -150px;
+        }
+        .a3{
+            text-decoration: none;
+            color: #136ec2;
+        }
+        .a3:hover{
+            text-decoration: underline;
+        }
+
+        span{
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 100%;height: 21px;">
+        <div id="div2">
+            <a id="a2" href="http://www.baidu.com/">百度首页</a>
+        </div>
+        <div id="div1">
+            <a class="a1" href="https://www.baidu.com/" nslog="normal" target="_blank">网页</a>
+            <a class="a1" href="http://news.baidu.com/" nslog="normal" target="_blank">新闻</a>
+            <a class="a1" href="https://tieba.baidu.com/" nslog="normal" target="_blank">贴吧</a>
+            <a class="a1" href="https://zhidao.baidu.com/" nslog="normal" target="_blank">知道</a>
+            <a class="a1" href="http://music.baidu.com/" nslog="normal" target="_blank">音乐</a>
+            <a class="a1" href="http://image.baidu.com/" nslog="normal" target="_blank">图片</a>
+            <a class="a1" href="http://v.baidu.com/" nslog="normal" target="_blank">视频</a>
+            <a class="a1" href="http://map.baidu.com/" nslog="normal" target="_blank">地图</a>
+            <a class="a1" href="https://wenku.baidu.com/" nslog="normal" target="_blank">文库</a>
+            <b style="color: #666666">百科</b>
+        </div>
+    </div>
+
+
+    <div style="height: 68px;margin-top: 40px;">
+        <div  id="div3" style="height: 68px;">
+            <img src="../images/百科首页.png">
+            <input id="query" type="text" autocomplete="off" value="4AM电子竞技俱乐部" />
+            <button id="search" type="button">进入词条</button>
+            <button id="searchLemma" type="button">全站搜索</button>
+            <a class="help" href="https://baike.baidu.com/help" target="_blank">帮助</a>
+        </div>
+    </div>
+
+    <div id="div4">
+        <div id="div5">
+            声明：百科词条人人可编辑，词条创建和修改均免费，绝不存在官方及代理商付费代编，请勿上当受骗。
+            <a class="declare-details" target="_blank" href="https://baike.baidu.com/common/declaration">详情>></a>
+            <img  id="img1" src="../images/delete.png" style="float: right;margin-top: 6px;margin-right: 3px">
+        </div>
+    </div>
+
+    <div id="div6">
+        <div class="div1" style="margin-left: 200px;">首页</div>
+        <div class="div1" >分类</div>
+        <div class="div1" >秒懂百科</div>
+        <div class="div1" >特色百科</div>
+        <div class="div1" >用户</div>
+        <div class="div1" >权威合作</div>
+        <div  id="div7" >
+            <img src="../images/person.png" style="margin-top: 8px">
+            <a  href="https://baike.baidu.com/usercenter" target="_blank">个人中心</a>
+        </div>
+    </div>
+
+    <div id="div8">
+        <div style="height: 33px;">
+            <div class="div2" style="margin-left: 200px;"><a href="https://baike.baidu.com/calendar/" target="_blank">历史上的今天</a></div>
+            <div class="div2" ><a href="https://baike.baidu.com/art" target="_blank">艺术</a> <a href="https://baike.baidu.com/science" target="_blank">科学</a></div>
+            <div class="div2" ><a href="https://child.baidu.com/" target="_blank">懂啦</a></div>
+            <div class="div2" ><a href="https://baike.baidu.com/museum/" target="_blank">数字博物馆</a></div>
+            <div class="div2" ><a href="https://baike.baidu.com/kedou/" target="_blank">蝌蚪团</a></div>
+            <div class="div2" ><a href="https://baike.baidu.com/cooperation#joint" target="_blank">合作模式</a></div>
+        </div>
+        <div style="height: 33px;">
+            <div class="div2" style="margin-left: 200px;display: block;"><a href="https://baike.baidu.com/vbaike/" target="_blank">百科冷知识</a></div>
+            <div class="div2" ><a href="http://baike.baidu.com/ziran" target="_blank">自然</a> <a href="http://baike.baidu.com/wenhua" target="_blank">文化</a></div>
+            <div class="div2" ><a href="https://baike.baidu.com/item/%E7%A7%92%E6%87%82%E6%9C%AC%E5%B0%8A%E7%AD%94" target="_blank">秒懂本尊答</a></div>
+            <div class="div2" ><a href="https://baike.baidu.com/feiyi?fr=dhlfeiyi" target="_blank">非遗百科</a></div>
+            <div class="div2" ><a href="https://baike.baidu.com/item/%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91%EF%BC%9A%E7%87%83%E6%A2%A6%E8%AE%A1%E5%88%92" target="_blank">燃梦计划</a>   </div>
+            <div class="div2" ><a href="https://baike.baidu.com/cooperation#issue" target="_blank">常见问题</a></div>
+        </div>
+        <div style="height: 33px;">
+            <div class="div2" style="margin-left: 200px;display: block;"><a href="https://baike.baidu.com/vbaike#gallary" target="_blank">图解百科</a></div>
+            <div class="div2" ><a href="http://baike.baidu.com/dili" target="_blank">地理</a> <a href="http://baike.baidu.com/shenghuo" target="_blank">生活</a></div>
+            <div class="div2" ><a href="https://baike.baidu.com/item/%E7%A7%92%E6%87%82%E5%A4%A7%E5%B8%88%E8%AF%B4" target="_blank">秒懂大师说</a></div>
+            <div class="div2" ><a href="http://baike.baidu.com/city/" target="_blank">城市百科</a></div>
+            <div class="div2" ><a href="https://baike.baidu.com/item/%E7%99%BE%E7%A7%91%E5%88%86%E7%B1%BB%E8%BE%BE%E4%BA%BA%E5%9B%A2" target="_blank">分类达人</a></div>
+            <div class="div2" ><a href="https://baike.baidu.com/cooperation#connection" target="_blank">联系方式</a></div>
+        </div>
+        <div style="height: 33px;">
+            <div class="div2" style="margin-left: 310px;"><a href="http://baike.baidu.com/shehui" target="_blank">社会</a> <a href="http://baike.baidu.com/renwu" target="_blank">人物</a></div>
+            <div class="div2" ><a href="https://baike.baidu.com/item/%E7%A7%92%E6%87%82%E7%9C%8B%E7%93%A6%E7%89%B9" target="_blank">秒懂看瓦特</a></div>
+            <div class="div2" ><a href="https://baike.baidu.com/wikicategory/view?categoryName=%E6%81%90%E9%BE%99%E5%A4%A7%E5%85%A8" target="_blank">恐龙百科</a></div>
+            <div class="div2" ><a href="https://baike.baidu.com/task/" target="_blank">百科任务</a></div>
+        </div>
+        <div style="height: 33px;">
+            <div class="div2" style="margin-left: 310px;"><a href="http://baike.baidu.com/jingji" target="_blank">经济</a> <a href="http://baike.baidu.com/tiyu" target="_blank">体育</a></div>
+            <div class="div2" ><a href="https://baike.baidu.com/item/%E7%A7%92%E6%87%82%E4%BA%94%E5%8D%83%E5%B9%B4" target="_blank">秒懂五千年</a></div>
+            <div class="div2" ><a href="https://baike.baidu.com/wikicategory/view?categoryName=%E5%A4%9A%E8%82%89%E6%A4%8D%E7%89%A9" target="_blank">多肉百科</a></div>
+            <div class="div2" ><a href="http://baike.baidu.com/mall/" target="_blank">百科商城</a></div>
+            <div class="div2" ></div>
+        </div>
+        <div style="height: 33px;">
+            <div class="div2" style="margin-left: 310px;"><a href="http://baike.baidu.com/lishi" target="_blank">历史</a> </div>
+            <div class="div2" ><a href="https://baike.baidu.com/item/%E7%A7%92%E6%87%82%E5%85%A8%E8%A7%86%E7%95%8C" target="_blank">秒懂全视界</a></div>
+            <div class="div2" ></div>
+            <div class="div2" ></div>
+            <div class="div2" ></div>
+        </div>
+
+    </div>
+
+    <div id="div9">
+        <img style="width: 100%;" src="../images/back.png">
+    </div>
+
+    <div id="div10">
+        <div id="div11">
+            <font size=6>4AM电子竞技俱乐部 </font>
+            <div style="width: 700px;">
+                <p style="text-indent: 2em;">4AM战队是由旗下原LOL人气中单韦神创办的一支
+                    <a  class="a3" href="https://baike.baidu.com/item/%E7%BB%9D%E5%9C%B0%E6%B1%82%E7%94%9F/20321989"  target="_blank">绝地求生</a>战队，
+                    一家独立运行的PUBG职业俱乐部。2017年，4AM宣布入驻虎牙。</p>
+            </div>
+            <div id="div12">
+                <a target="_blank" href="https://baike.baidu.com/pic/4AM%E7%94%B5%E5%AD%90%E7%AB%9E%E6%8A%80%E4%BF%B1%E4%B9%90%E9%83%A8/23232238/0/f2deb48f8c5494ee3708fb0721f5e0fe99257e82?fr=lemma&ct=single#aid=0&pic=f2deb48f8c5494ee3708fb0721f5e0fe99257e82">
+                    <img src="../images/4AMpic.png" style="width: 100%;height: 100%;"></a>
+            </div>
+            <div  id="div13" >
+                <p style="text-indent: 2em;">在2017年夺得香蕉计划绝地求生国际邀请赛亚军、杭州电竞嘉年华冠军及韩国G-STAR绝地求生亚洲邀请赛夺得亚军，
+                    在2018年6月绝地求生PCPI S1中国区（TPP）获得冠军。2019年10月，获百度APP&百家号杯和平精英电竞赛冠军。2019年11月25日，获《绝地求生》PGC全球总决赛季军。</p>
+            </div>
+            <div class="div3">
+                <span style="text-indent: 1em;color: gray;">中文名称</span>
+                <span style="position: relative;left: 3em;">4AM电子竞技俱乐部</span>
+                <span style="position: relative;left: 15em;color: gray;width: 10px;">主要荣誉</span>
+                <span style="position: relative;left: 275px;">韩国G-STAR亚洲邀请赛亚军</span>
+            </div>
+            <div class="div3">
+                <span style="text-indent: 1em;color: gray;">英文名称</span>
+                <span style="position: relative;left: 3em;">Four Angry Men</span>
+                <span style="position: relative;left: 356px;">PCPI S1 TPP中国区冠军</span>
+            </div>
+            <div class="div3">
+                <span style="text-indent: 1em;color: gray;">创始人</span>
+                <span style="position: relative;left: 4em;"><a class="a3"  href="https://baike.baidu.com/item/%E9%9F%A6%E6%9C%95/19835808">韦朕</a></span>
+                <span style="position: relative;left: 450px;">PCL夏季赛冠军</span>
+            </div>
+            <div class="div4">
+                <span style="text-indent: 1em;color: gray;">设计项目</span>
+                <span style="position: relative;left: 3em;">绝地求生</span>
+                <span style="position: relative;left: 405px;">2019PGC全球总决赛季军</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#img1").click(function(){
+                $("#div4").remove();
+            });
+        });
+        $(document).ready(function(){
+            $('.div1').hover(function(){
+                // $("#div8").fadeIn();
+                $("#div8").css('visibility','visible');
+            });
+        });
+        $(document).ready(function(){
+            $('#div8').mouseleave(function(){
+                // $("#div8").fadeIn();
+                $("#div8").css('visibility','hidden');
+            });
+        });
+    </script>
+</body>
+</html>
